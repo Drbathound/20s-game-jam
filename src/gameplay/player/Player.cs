@@ -6,7 +6,7 @@ public class Player : KinematicBody2D
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
-	 public int Speed = 250;
+	public int Speed = 250;
 	private Vector2 _velocity = new Vector2();
 
 	public void GetInput()
@@ -14,7 +14,7 @@ public class Player : KinematicBody2D
 		// Detect up/down/left/right keystate and only move when pressed
 		_velocity = new Vector2();
 
-		if (Input.IsActionPressed("ui_right"))
+		/* if (Input.IsActionPressed("ui_right"))
 			_velocity.x += 1;
 
 		if (Input.IsActionPressed("ui_left"))
@@ -24,6 +24,18 @@ public class Player : KinematicBody2D
 			_velocity.y += 1;
 
 		if (Input.IsActionPressed("ui_up"))
+			_velocity.y -= 1;
+		_velocity = _velocity.Normalized() * Speed; */
+		if (Input.IsActionPressed("right"))
+			_velocity.x += 1;
+
+		if (Input.IsActionPressed("left"))
+			_velocity.x -= 1;
+
+		if (Input.IsActionPressed("down"))
+			_velocity.y += 1;
+
+		if (Input.IsActionPressed("up"))
 			_velocity.y -= 1;
 		_velocity = _velocity.Normalized() * Speed;
 	}
