@@ -11,6 +11,11 @@ public class Player : KinematicBody2D
 	//private var viewport_size = GetViewport().GetVisibleRect().Size;
 	private AnimatedSprite _animatedSprite;
 	private readonly NodePath _animatedSpritePath = "AnimatedSprite";
+	private Sprite _alkahest;
+	private readonly NodePath _alkahestPath = "alkahest";
+	private Sprite _aquaFortis;
+	private readonly NodePath _aquaFortisPath = "aquaFortis";
+	[Export] public bool holding = false;
 	[Export] public Vector2 ScreenSize = new Vector2(320,180);
 	[Export] public Vector2 SpriteOffset = new Vector2(8f,8f);
 	public int Speed = 100;
@@ -58,11 +63,36 @@ public class Player : KinematicBody2D
 		clampedPosition.x = Mathf.Clamp(clampedPosition.x, SpriteOffset.x, ScreenSize.x - SpriteOffset.x);
 		clampedPosition.y = Mathf.Clamp(clampedPosition.y, SpriteOffset.y, ScreenSize.y - SpriteOffset.y);
 		Position = clampedPosition;
+		
+		if(collision!= null){
+			//GD.Print(collision);
+			Node collider = (Node)collision.Collider;
+			
+			if(!holding){
+				if(collider.IsInGroup("ingredient")){
+					GD.Print(collider.Name);
+					Set_Ingredient(collider.Name);
+					holding = true;
+				}
+			}else{
+				if(collider.Name == "Cauldron"){
+					_alkahest.Visible = false;
+					_aquaFortis.Visible = false;
+					holding = false;
+				}
+			}
+			
+		}
+		//_alkahest.Position = new Vector2(this.Position.x, this.Position.y - 8);
 	}
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite>(_animatedSpritePath);
+		_alkahest = GetNode<Sprite>(_alkahestPath);
+		_alkahest.Visible = false;
+		_aquaFortis = GetNode<Sprite>(_aquaFortisPath);
+		_aquaFortis.Visible = false;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -84,8 +114,17 @@ public class Player : KinematicBody2D
 			_animatedSprite.Play("idle");
 		}
 		
-		
-		
-		
+	}
+	private void Set_Ingredient(string ingredientName){
+		switch (ingredientName){
+			case "Alkahest":
+				_alkahest.Visible = true;
+				break;
+			case "AquaFortis":
+				_aquaFortis.Visible = true;
+				break;
+			default:
+				break;
+		}
 	}
 }
