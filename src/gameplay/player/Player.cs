@@ -101,18 +101,34 @@ public class Player : KinematicBody2D
 //      
 //  }
 	private void Play_Animation(Vector2 dir){
-		if(dir.x<0){
-			_animatedSprite.Play("move_left");
-		}else if(dir.x>0){
-			_animatedSprite.Play("move_right");
-		}else if(dir.y>0){
-			_animatedSprite.Play("move_down");
-		}else if(dir.y<0){
-			_animatedSprite.Play("move_up");
+		if(holding){
+			if(dir.x<0){
+				_animatedSprite.Play("carry_left");
+			}else if(dir.x>0){
+				_animatedSprite.Play("carry_right");
+			}else if(dir.y>0){
+				_animatedSprite.Play("carry_down");
+			}else if(dir.y<0){
+				_animatedSprite.Play("carry_up");
+			}
+			if(dir.x == 0 && dir.y == 0){
+				_animatedSprite.Play("carry_idle");
+			}
+		}else{
+			if(dir.x<0){
+				_animatedSprite.Play("move_left");
+			}else if(dir.x>0){
+				_animatedSprite.Play("move_right");
+			}else if(dir.y>0){
+				_animatedSprite.Play("move_down");
+			}else if(dir.y<0){
+				_animatedSprite.Play("move_up");
+			}
+			if(dir.x == 0 && dir.y == 0){
+				_animatedSprite.Play("idle");
+			}
 		}
-		if(dir.x == 0 && dir.y == 0){
-			_animatedSprite.Play("idle");
-		}
+		
 		
 	}
 	private void Set_Ingredient(string ingredientName){
