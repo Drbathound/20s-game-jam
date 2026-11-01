@@ -76,8 +76,9 @@ public class Player : KinematicBody2D
 				}
 			}else{
 				if(collider.Name == "Cauldron"){
-					_alkahest.Visible = false;
-					_aquaFortis.Visible = false;
+					//_alkahest.Visible = false;
+					//_aquaFortis.Visible = false;
+					IngredientsFalse();
 					holding = false;
 				}
 			}
@@ -90,9 +91,10 @@ public class Player : KinematicBody2D
 	{
 		_animatedSprite = GetNode<AnimatedSprite>(_animatedSpritePath);
 		_alkahest = GetNode<Sprite>(_alkahestPath);
-		_alkahest.Visible = false;
+		//_alkahest.Visible = false;
 		_aquaFortis = GetNode<Sprite>(_aquaFortisPath);
-		_aquaFortis.Visible = false;
+		//_aquaFortis.Visible = false;
+		IngredientsFalse();
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -130,6 +132,10 @@ public class Player : KinematicBody2D
 		}
 		
 		
+	}
+	private void IngredientsFalse(){
+		_alkahest.Visible = false;
+		_aquaFortis.Visible = false;
 	}
 	private void Set_Ingredient(string ingredientName){
 		switch (ingredientName){
