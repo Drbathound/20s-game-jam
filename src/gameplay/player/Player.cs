@@ -11,13 +11,14 @@ public class Player : KinematicBody2D
 	//private var viewport_size = GetViewport().GetVisibleRect().Size;
 	private AnimatedSprite _animatedSprite;
 	private readonly NodePath _animatedSpritePath = "AnimatedSprite";
-	private Sprite _acorn;
-    private readonly NodePath _acornPath = "acorn";
+	//private Sprite _acorn;
+    //private readonly NodePath _acornPath = "acorn";
 	private Sprite _alkahest;
 	private readonly NodePath _alkahestPath = "alkahest";
 	private Sprite _aquaFortis;
 	private readonly NodePath _aquaFortisPath = "aquaFortis";
-    private Sprite _bearFat;
+    /*
+	private Sprite _bearFat;
     private readonly NodePath _bearFatPath = "bearFat";
     private Sprite _dandelion;
     private readonly NodePath _dandelionPath = "dandelion";
@@ -39,6 +40,7 @@ public class Player : KinematicBody2D
     private readonly NodePath _saltPeterPath = "saltPeter";
     private Sprite _wyrmTongue;
     private readonly NodePath _wyrmTonguePath = "wyrmTongue";
+	*/
     [Export] public bool holding = false;
 	[Export] public Vector2 ScreenSize = new Vector2(320,180);
 	[Export] public Vector2 SpriteOffset = new Vector2(8f,8f);
@@ -114,12 +116,13 @@ public class Player : KinematicBody2D
 	public override void _Ready()
 	{
 		_animatedSprite = GetNode<AnimatedSprite>(_animatedSpritePath);
-		_acorn = GetNode<Sprite>(_acornPath);
+		//_acorn = GetNode<Sprite>(_acornPath);
 		_alkahest = GetNode<Sprite>(_alkahestPath);
 		//_alkahest.Visible = false;
 		_aquaFortis = GetNode<Sprite>(_aquaFortisPath);
 		//_aquaFortis.Visible = false;
-        _bearFat = GetNode<Sprite>(_bearFatPath);
+        /*
+		_bearFat = GetNode<Sprite>(_bearFatPath);
         _dandelion = GetNode<Sprite>(_dandelionPath);
         _dragonScale = GetNode<Sprite>(_dragonScalePath);
         _eyeOfNewt = GetNode<Sprite>(_eyeOfNewtPath);
@@ -130,6 +133,7 @@ public class Player : KinematicBody2D
 		_powderOfAlgaroth = GetNode<Sprite>(_powderOfAlgarothPath);
 		_saltPeter = GetNode<Sprite>(_saltPeterPath);
 		_wyrmTongue = GetNode<Sprite>(_wyrmTonguePath);
+		*/
         IngredientsFalse();
 	}
 
@@ -170,10 +174,11 @@ public class Player : KinematicBody2D
 		
 	}
 	private void IngredientsFalse(){
+		//_acorn.Visible = false;
 		_alkahest.Visible = false;
 		_aquaFortis.Visible = false;
-        _acorn.Visible = false;
-        _bearFat.Visible = false;
+        /*
+		_bearFat.Visible = false;
         _dandelion.Visible = false;
         _dragonScale.Visible = false;
 		_eyeOfNewt.Visible = false;
@@ -184,20 +189,20 @@ public class Player : KinematicBody2D
 		_powderOfAlgaroth.Visible = false;
 		_saltPeter.Visible = false;
 		_wyrmTongue.Visible = false;
+		*/
     }
 	private void Set_Ingredient(string ingredientName){
 		switch (ingredientName){
-			case "Acorn":
-                _acorn.Visible = true;
-                break;
+			//case "Acorn":
+                //_acorn.Visible = true;
+                //break;
             case "Alkahest":
 				_alkahest.Visible = true;
 				break;
 			case "AquaFortis":
 				_aquaFortis.Visible = true;
 				break;
-			default:
-				break;
+			/*
 			case "BearFat":
                 _bearFat.Visible = true;
                 break;
@@ -230,7 +235,10 @@ public class Player : KinematicBody2D
                 break;
 			case "WyrmTongue":
                 _wyrmTongue.Visible = true;
-                break;		
+                break;
+			*/
+			default:
+				break;	
         }
 	}
 }
