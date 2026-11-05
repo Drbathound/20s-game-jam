@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/gameplay/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/gameplay/ingredients/Alkahest.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://src/gameplay/ingredients/WyrmTongue.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/gameplay/ingredients/Mandrake.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/gameplay/ingredients/MilkThistle.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/core/main_game/EntityRoot.cs" type="Script" id=17]
 
 [node name="MainGame" type="Node"]
 pause_mode = 2
@@ -26,6 +27,9 @@ pause_mode = 2
 pause_mode = 1
 
 [node name="EntityRoot" type="Node2D" parent="World"]
+script = ExtResource( 17 )
+_maxPos = Vector2( 320, 180 )
+_entityScene = ExtResource( 6 )
 
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
 
@@ -42,7 +46,8 @@ position = Vector2( 21, 50 )
 position = Vector2( 300, 50 )
 
 [node name="BearFat" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 6 )]
-position = Vector2( 20, 80 )
+visible = false
+position = Vector2( 0, 0 )
 
 [node name="Dandelion" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 7 )]
 visible = false
