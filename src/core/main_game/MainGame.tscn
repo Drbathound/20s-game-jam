@@ -36,13 +36,13 @@ position = Vector2( 151, 60 )
 visible = false
 
 [node name="Alkahest" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 2 )]
-position = Vector2( 20, 50 )
+position = Vector2( 21, 50 )
 
 [node name="AquaFortis" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 3 )]
 position = Vector2( 300, 50 )
 
 [node name="BearFat" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 6 )]
-visible = false
+position = Vector2( 20, 80 )
 
 [node name="Dandelion" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 7 )]
 visible = false
