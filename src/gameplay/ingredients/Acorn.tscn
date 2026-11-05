@@ -2,7 +2,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="BearFat" type="KinematicBody2D"]
+[node name="Acorn" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 

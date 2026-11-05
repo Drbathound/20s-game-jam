@@ -16,7 +16,7 @@
 [ext_resource path="res://src/gameplay/ingredients/WyrmTongue.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/gameplay/ingredients/Mandrake.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/gameplay/ingredients/MilkThistle.tscn" type="PackedScene" id=16]
-[ext_resource path="res://src/core/main_game/EntityRoot.cs" type="Script" id=17]
+[ext_resource path="res://src/core/main_game/IngredientRandomization.cs" type="Script" id=17]
 
 [node name="MainGame" type="Node"]
 pause_mode = 2
@@ -28,8 +28,7 @@ pause_mode = 1
 
 [node name="EntityRoot" type="Node2D" parent="World"]
 script = ExtResource( 17 )
-_maxPos = Vector2( 320, 180 )
-_entityScene = ExtResource( 6 )
+_bottomRight = Vector2( 320, 180 )
 
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
 
@@ -37,47 +36,33 @@ _entityScene = ExtResource( 6 )
 position = Vector2( 151, 60 )
 
 [node name="Acorn" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 5 )]
-visible = false
 
 [node name="Alkahest" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 2 )]
-position = Vector2( 21, 50 )
 
 [node name="AquaFortis" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 3 )]
-position = Vector2( 300, 50 )
 
 [node name="BearFat" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 0, 0 )
 
 [node name="Dandelion" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 7 )]
-visible = false
 
 [node name="DragonScale" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 8 )]
-visible = false
 
 [node name="EyeofNewt" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 9 )]
-visible = false
 
 [node name="Fig" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 10 )]
-visible = false
 
 [node name="FigLeaves" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 11 )]
-visible = false
 
 [node name="Mandrake" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 15 )]
-visible = false
 
 [node name="MilkThistle" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 16 )]
-visible = false
 
 [node name="PowderofAlgaroth" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 12 )]
-visible = false
 
 [node name="SaltPeter" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 13 )]
-visible = false
 
 [node name="WyrmTongue" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 14 )]
-visible = false
 
 [node name="BorderRoot" type="Node2D" parent="World"]
 
