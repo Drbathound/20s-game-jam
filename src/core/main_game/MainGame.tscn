@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/gameplay/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/gameplay/ingredients/Alkahest.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/gameplay/ingredients/AquaFortis.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/gameplay/furnishings/Cauldron.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/gameplay/ingredients/Acorn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/gameplay/ingredients/BearFat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/gameplay/ingredients/Dandelion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/gameplay/ingredients/DragonScale.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/gameplay/ingredients/EyeofNewt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/gameplay/ingredients/Fig.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/gameplay/ingredients/FigLeaves.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/gameplay/ingredients/PowderofAlgaroth.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/gameplay/ingredients/SaltPeter.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/gameplay/ingredients/WyrmTongue.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/gameplay/ingredients/Mandrake.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/gameplay/ingredients/MilkThistle.tscn" type="PackedScene" id=16]
 
 [node name="MainGame" type="Node"]
 pause_mode = 2
@@ -17,14 +29,50 @@ pause_mode = 1
 
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
 
+[node name="Cauldron" parent="World/EntityRoot" instance=ExtResource( 4 )]
+position = Vector2( 151, 60 )
+
+[node name="Acorn" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 5 )]
+visible = false
+
 [node name="Alkahest" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 2 )]
-position = Vector2( 20, 50 )
+position = Vector2( 21, 50 )
 
 [node name="AquaFortis" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 3 )]
 position = Vector2( 300, 50 )
 
-[node name="Cauldron" parent="World/EntityRoot" instance=ExtResource( 4 )]
-position = Vector2( 151, 60 )
+[node name="BearFat" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 6 )]
+position = Vector2( 20, 80 )
+
+[node name="Dandelion" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 7 )]
+visible = false
+
+[node name="DragonScale" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 8 )]
+visible = false
+
+[node name="EyeofNewt" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 9 )]
+visible = false
+
+[node name="Fig" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 10 )]
+visible = false
+
+[node name="FigLeaves" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 11 )]
+visible = false
+
+[node name="Mandrake" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 15 )]
+visible = false
+
+[node name="MilkThistle" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 16 )]
+visible = false
+
+[node name="PowderofAlgaroth" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 12 )]
+visible = false
+
+[node name="SaltPeter" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 13 )]
+visible = false
+
+[node name="WyrmTongue" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 14 )]
+visible = false
 
 [node name="BorderRoot" type="Node2D" parent="World"]
 

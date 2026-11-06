@@ -145,13 +145,15 @@ animations = [ {
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 13 )
+animation = "carry_down"
+
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 13 )
-animation = "carry_down"
+[node name="acorn" type="Sprite" parent="."]
 
 [node name="alkahest" type="Sprite" parent="."]
 position = Vector2( 0, -9 )
@@ -160,6 +162,28 @@ texture = ExtResource( 6 )
 [node name="aquaFortis" type="Sprite" parent="."]
 position = Vector2( 0, -9 )
 texture = ExtResource( 5 )
+
+[node name="bearFat" type="Sprite" parent="."]
+
+[node name="dandelion" type="Sprite" parent="."]
+
+[node name="dragonScale" type="Sprite" parent="."]
+
+[node name="eyeOfNewt" type="Sprite" parent="."]
+
+[node name="fig" type="Sprite" parent="."]
+
+[node name="figLeaves" type="Sprite" parent="."]
+
+[node name="mandrake" type="Sprite" parent="."]
+
+[node name="milkThistle" type="Sprite" parent="."]
+
+[node name="powderOfAlgaroth" type="Sprite" parent="."]
+
+[node name="saltPeter" type="Sprite" parent="."]
+
+[node name="wyrmTongue" type="Sprite" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
