@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Permissions;
 
 public class Cauldron : KinematicBody2D
 {
@@ -8,7 +10,8 @@ public class Cauldron : KinematicBody2D
 	// private int a = 2;
 	// private string b = "text";
 	//[Export] public int ingredientCount = 3;
-	private List<string> contents = new List<string>();
+	[Export] public List<string> generatedRecipe;
+	private List<string> _contents = new List<string>();
 	private Player _player;
 	private readonly NodePath _playerPath = "../Player";
 	// Called when the node enters the scene tree for the first time.
@@ -26,18 +29,23 @@ public class Cauldron : KinematicBody2D
 	}
 	private void OnPlacedIngredient(string ingredient){
 		GD.Print("cauldron recieved ingredient " + ingredient);
-		contents.Add(ingredient);
-		if(contents.Count == 5){
-            CheckContents();
+		_contents.Add(ingredient);
+		if(_contents.Count == generatedRecipe.Count){
+			CheckContents();
 			string printIngredients = "";
-			for(int i = 0; i<contents.Count; i++){
-				printIngredients += contents[i];
+			for(int i = 0; i<_contents.Count; i++){
+				printIngredients += _contents[i];
 			}
 			GD.Print("contents has" + printIngredients);
 		}
 		//if()
 	}
-    private void CheckContents(){
-        
-    }
+	private void CheckContents(){
+		if(_contents.SequenceEqual(generatedRecipe)){
+			GD.Print("recipe complete");
+		}else{
+			GD.Print("recipe done wrong");
+			//play bad recipe ingredient
+		}
+	}
 }
