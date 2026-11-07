@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/gameplay/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/gameplay/ingredients/Alkahest.tscn" type="PackedScene" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://src/gameplay/ingredients/Mandrake.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/gameplay/ingredients/MilkThistle.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/core/main_game/EntityRoot.cs" type="Script" id=17]
+[ext_resource path="res://assets/art/world/furnishings/Phone_Sprite_Active.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/world/furnishings/Phone_Sprite_Idle.png" type="Texture" id=19]
+[ext_resource path="res://src/core/main_game/RecipeControl.cs" type="Script" id=20]
 
 [node name="MainGame" type="Node"]
 pause_mode = 2
@@ -87,18 +90,28 @@ pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Recipe" type="Control" parent="HudLayer/HudRoot"]
+[node name="RecipeControl" type="Control" parent="HudLayer/HudRoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 20 )
 
-[node name="TextureButton" type="TextureButton" parent="HudLayer/HudRoot/Recipe"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="ItemList" type="ItemList" parent="HudLayer/HudRoot/Recipe"]
+[node name="RecipeList" type="ItemList" parent="HudLayer/HudRoot/RecipeControl"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -39.0
+auto_height = true
+
+[node name="RecipeIcon" type="TextureButton" parent="HudLayer/HudRoot/RecipeControl"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -16.0
+margin_top = -16.0
+toggle_mode = true
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 18 )
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -120,3 +133,5 @@ pause_mode = 2
 [node name="DebugRoot" type="Control" parent="DebugLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[connection signal="toggled" from="HudLayer/HudRoot/RecipeControl/RecipeIcon" to="HudLayer/HudRoot/RecipeControl" method="_on_RecipeIcon_toggled"]

@@ -10,6 +10,8 @@ public class EntityRoot : Node2D
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
+	private ItemList _recipeList;
+	private readonly NodePath _recipeListPath = "../../HudLayer/HudRoot/RecipeControl/RecipeList";
 	private Cauldron _cauldron;
 	private readonly NodePath _cauldronPath = "Cauldron";
 	[Export] public int recipeNumber = 4;
@@ -41,6 +43,7 @@ public class EntityRoot : Node2D
 	{
 		//for the random recipe generation 
 		_cauldron = GetNode<Cauldron>(_cauldronPath);
+		_recipeList = GetNode<ItemList>(_recipeListPath);
 		/* 
 		generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
 		generatedRecipe.Add(animalProduct[_rng.RandiRange(0, animalProduct.Count-1)]);
@@ -57,18 +60,22 @@ public class EntityRoot : Node2D
 			generatedRecipe[n] = value;
 		}
 		GD.Print(string.Join(", ", generatedRecipe)); */
+
 		//recipe for testing
 		generatedRecipe.Add("Alkahest");
 		generatedRecipe.Add("AquaFortis");
 		generatedRecipe.Add("BearFat");
 		_cauldron.generatedRecipe = generatedRecipe;
+		foreach(string element in generatedRecipe){
+			_recipeList.AddItem(element);
+		}
+		//_recipeList.AddItem
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
-//      E 0:00:00.351   void System.ThrowHelper.ThrowArgumentOutOfRange_IndexException(): System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
-
+//      
 
 //  }
 	
