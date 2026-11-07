@@ -40,6 +40,7 @@ public class Player : KinematicBody2D
 	private Sprite _wyrmTongue;
 	private readonly NodePath _wyrmTonguePath = "wyrmTongue";
 	[Export] public bool holding = false;
+	[Export] public string ingredientInHand;
 	[Export] public Vector2 ScreenSize = new Vector2(320,180);
 	[Export] public Vector2 SpriteOffset = new Vector2(8f,8f);
 	public int Speed = 100;
@@ -96,12 +97,14 @@ public class Player : KinematicBody2D
 				if(collider.IsInGroup("ingredient")){
 					GD.Print(collider.Name);
 					Set_Ingredient(collider.Name);
+					ingredientInHand = collider.Name;
 					holding = true;
 				}
 			}else{
 				if(collider.Name == "Cauldron"){
 					//_alkahest.Visible = false;
 					//_aquaFortis.Visible = false;
+					EmitSignal(nameof(PlacedIngredient),ingredientInHand);
 					IngredientsFalse();
 					holding = false;
 				}
@@ -170,6 +173,7 @@ public class Player : KinematicBody2D
 		
 	}
 	private void IngredientsFalse(){
+		ingredientInHand = null;
 		_acorn.Visible = false;
 		_alkahest.Visible = false;
 		_aquaFortis.Visible = false;
@@ -233,4 +237,6 @@ public class Player : KinematicBody2D
 				break;	
 		}
 	}
+	[Signal]
+	public delegate void PlacedIngredient(string ingredientName);
 }
