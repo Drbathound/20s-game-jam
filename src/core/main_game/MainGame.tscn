@@ -82,8 +82,21 @@ visible = false
 pause_mode = 1
 
 [node name="HudRoot" type="Control" parent="HudLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Recipe" type="Control" parent="HudLayer/HudRoot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureButton" type="TextureButton" parent="HudLayer/HudRoot/Recipe"]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="ItemList" type="ItemList" parent="HudLayer/HudRoot/Recipe"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
