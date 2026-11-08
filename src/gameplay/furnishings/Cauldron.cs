@@ -10,6 +10,8 @@ public class Cauldron : KinematicBody2D
 	// private int a = 2;
 	// private string b = "text";
 	//[Export] public int ingredientCount = 3;
+	private AnimatedSprite _animatedSprite;
+	private readonly NodePath _animatedSpritePath = "AnimatedSprite";
 	[Export] public List<string> generatedRecipe;
 	private List<string> _contents = new List<string>();
 	private Player _player;
@@ -19,6 +21,8 @@ public class Cauldron : KinematicBody2D
 	{
 		_player = GetNode<Player>(_playerPath);
 		_player.Connect(nameof(Player.PlacedIngredient), this, nameof(OnPlacedIngredient));
+		_animatedSprite = GetNode<AnimatedSprite>(_animatedSpritePath);
+		_animatedSprite.Play("default");
 		//GD.Print(_player.Name);
 	}
 
