@@ -46,7 +46,8 @@ public class EntityRoot : Node2D
 		_cauldron = GetNode<Cauldron>(_cauldronPath);
 		_recipeList = GetNode<ItemList>(_recipeListPath);
 		 
-		generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
+		 //for the random recipe
+		/* generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
 		generatedRecipe.Add(animalProduct[_rng.RandiRange(0, animalProduct.Count-1)]);
 		generatedRecipe.Add(plant[_rng.RandiRange(0, plant.Count-1)]);
 		originalRecipe = new List<string>(generatedRecipe);
@@ -64,12 +65,14 @@ public class EntityRoot : Node2D
 		}
 		GD.Print(string.Join(", ", generatedRecipe));
 		GD.Print(string.Join(", ", originalRecipe));
+		_cauldron.generatedRecipe = originalRecipe; */
 
 		//recipe for testing
-		//generatedRecipe.Add("Alkahest");
-		//generatedRecipe.Add("AquaFortis");
-		//generatedRecipe.Add("BearFat");
-		_cauldron.generatedRecipe = originalRecipe;
+		generatedRecipe.Add("Alkahest");
+		generatedRecipe.Add("AquaFortis");
+		generatedRecipe.Add("BearFat");
+		_cauldron.generatedRecipe = generatedRecipe;
+
 		foreach(string element in generatedRecipe){
 			_recipeList.AddItem(element);
 		}
