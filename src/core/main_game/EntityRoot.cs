@@ -38,17 +38,21 @@ public class EntityRoot : Node2D
 		WyrmTongue
 	}
 	public List<string> generatedRecipe = new List<string>{};
+	public List<string> originalRecipe = new List<string>{};
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		//for the random recipe generation 
 		_cauldron = GetNode<Cauldron>(_cauldronPath);
 		_recipeList = GetNode<ItemList>(_recipeListPath);
-		/* 
-		generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
+		 
+		 //for the random recipe
+		/* generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
 		generatedRecipe.Add(animalProduct[_rng.RandiRange(0, animalProduct.Count-1)]);
 		generatedRecipe.Add(plant[_rng.RandiRange(0, plant.Count-1)]);
+		originalRecipe = new List<string>(generatedRecipe);
 		GD.Print(string.Join(", ", generatedRecipe));
+		GD.Print(string.Join(", ", originalRecipe));
 		Random rng = new Random();
 		int n = generatedRecipe.Count;
 		while (n > 1)
@@ -59,13 +63,16 @@ public class EntityRoot : Node2D
 			generatedRecipe[k] = generatedRecipe[n];
 			generatedRecipe[n] = value;
 		}
-		GD.Print(string.Join(", ", generatedRecipe)); */
+		GD.Print(string.Join(", ", generatedRecipe));
+		GD.Print(string.Join(", ", originalRecipe));
+		_cauldron.generatedRecipe = originalRecipe; */
 
 		//recipe for testing
 		generatedRecipe.Add("Alkahest");
 		generatedRecipe.Add("AquaFortis");
 		generatedRecipe.Add("BearFat");
 		_cauldron.generatedRecipe = generatedRecipe;
+
 		foreach(string element in generatedRecipe){
 			_recipeList.AddItem(element);
 		}
