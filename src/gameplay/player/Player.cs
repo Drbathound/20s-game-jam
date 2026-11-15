@@ -3,6 +3,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+//may need to update the sprite references to be animated sprites so they are animated while carrying
 public class Player : KinematicBody2D
 {
 	// Declare member variables here. Examples:
