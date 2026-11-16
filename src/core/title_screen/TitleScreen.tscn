@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://fonts/poco/Poco.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/poco/Poco.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/art/characters/Green_Wizard.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/world/Speech_Bubble.png" type="Texture" id=4]
+[ext_resource path="res://src/core/title_screen/TitleScreen.cs" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+anchor_right = 1.0
+margin_left = 96.0
+margin_top = 17.0
+margin_right = -127.0
+margin_bottom = 34.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_text = "[font_size=24]Alchemy Exam[/font_size]"
+text = "[font_size=24]Alchemy Exam[/font_size]"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 22.0
+margin_right = 102.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 1 )
+text = "Alchemy Exam"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 302, 160 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 199, 84 )
+texture = ExtResource( 4 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 113.0
+margin_top = 52.0
+margin_right = 284.0
+margin_bottom = 106.0
+custom_fonts/font = SubResource( 2 )
+text = "The automatic potion brewer
+is broken, and the recipe homunculus 
+jumped out the window. The order is 
+always chemical, animal product, and plant."
+align = 1
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 7.0
+margin_top = 52.0
+margin_right = 97.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 2 )
+text = "Start"
+
+[node name="CreditButton" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 74.0
+margin_right = 98.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 2 )
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 98.0
+margin_bottom = 110.0
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+
+[node name="CreditsList" type="ItemList" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = 22.0
+margin_right = -2.0
+margin_bottom = -70.0
+custom_fonts/font = SubResource( 3 )
+items = [ "Programming: Hank and Alger", null, false, "Art: Rune and Hank", null, false ]
+
+[node name="CloseCreditsButton" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 117.0
+margin_right = 98.0
+margin_bottom = 131.0
+custom_fonts/font = ExtResource( 2 )
+text = "Close Credits"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="CloseCreditsButton" to="." method="_on_CloseCreditsButton_pressed"]
