@@ -60,7 +60,7 @@ visible = false
 visible = false
 
 [node name="Fig" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 10 )]
-visible = false
+position = Vector2( 154, 10 )
 
 [node name="FigLeaves" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 11 )]
 visible = false

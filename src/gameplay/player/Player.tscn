@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/art/characters/Blue_Wizard.png" type="Texture" id=1]
 [ext_resource path="res://src/gameplay/player/Player.cs" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/world/ingredients/Acorn.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/world/ingredients/dandelion.png" type="Texture" id=8]
 [ext_resource path="res://assets/art/world/ingredients/Milk_Thistle.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/world/ingredients/Fig.png" type="Texture" id=10]
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 4 )
@@ -179,6 +180,8 @@ texture = ExtResource( 8 )
 [node name="eyeOfNewt" type="Sprite" parent="."]
 
 [node name="fig" type="Sprite" parent="."]
+position = Vector2( 0, -14 )
+texture = ExtResource( 10 )
 
 [node name="figLeaves" type="Sprite" parent="."]
 
