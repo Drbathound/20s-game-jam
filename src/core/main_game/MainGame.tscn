@@ -84,6 +84,11 @@ visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/BorderRoot"]
 
+[node name="GameTimer" type="Timer" parent="World"]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
 [node name="HudLayer" type="CanvasLayer" parent="."]
 pause_mode = 1
 
@@ -117,6 +122,14 @@ toggle_mode = true
 texture_normal = ExtResource( 19 )
 texture_pressed = ExtResource( 18 )
 
+[node name="TimerDisplayControl" type="Control" parent="HudLayer/HudRoot"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TimerDisplay" type="TextureProgress" parent="HudLayer/HudRoot/TimerDisplayControl"]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 
@@ -138,4 +151,5 @@ pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
 
+[connection signal="timeout" from="World/GameTimer" to="World/EntityRoot" method="_on_GameTimer_timeout"]
 [connection signal="toggled" from="HudLayer/HudRoot/RecipeControl/RecipeIcon" to="HudLayer/HudRoot/RecipeControl" method="_on_RecipeIcon_toggled"]
