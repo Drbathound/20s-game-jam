@@ -18,6 +18,7 @@ public class Cauldron : KinematicBody2D
 	private List<string> _contents = new List<string>();
 	private Player _player;
 	private readonly NodePath _playerPath = "../Player";
+	private bool _GoodRecipeComplete = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -35,24 +36,30 @@ public class Cauldron : KinematicBody2D
 		
 	}
 	private void OnPlacedIngredient(string ingredient){
-		GD.Print("cauldron recieved ingredient " + ingredient);
-		_contents.Add(ingredient);
-		if(_contents.Count == generatedRecipe.Count){
-			CheckContents();
-			string printIngredients = "";
-			for(int i = 0; i<_contents.Count; i++){
+		if(!_GoodRecipeComplete){
+			GD.Print("cauldron recieved ingredient " + ingredient);
+			_contents.Add(ingredient);
+			//EmitSignal(nameof(GoodPlace));
+			if(_contents.Count == generatedRecipe.Count){
+				CheckContents();
+				string printIngredients = "";
+				for(int i = 0; i<_contents.Count; i++){
 				printIngredients += _contents[i];
+				}
+				GD.Print("contents has" + printIngredients);
+
 			}
-			GD.Print("contents has" + printIngredients);
-			
+			GD.Print("contents has" + string.Join(" ,", _contents));
 		}
-		GD.Print("contents has" + string.Join(" ,", _contents));
+		
 		//if()
 	}
 	private void CheckContents(){
 		if(_contents.SequenceEqual(generatedRecipe)){
 			GD.Print("recipe complete");
 			_animatedSprite.Play("good_recipe");
+			EmitSignal(nameof(GoodRecipeComplete));
+			_GoodRecipeComplete = true;
 		}else{
 			GD.Print("recipe done wrong");
 			_animatedSprite.Play("bad_recipe");
@@ -66,7 +73,12 @@ public class Cauldron : KinematicBody2D
 		_animatedSprite.Play("default");
 		// Replace with function body.
 	}
-}
+	[Signal]
+	public delegate void GoodRecipeComplete();
+
+	/* [Signal]
+	public delegate void GoodPlace();*/
+} 
 
 
 

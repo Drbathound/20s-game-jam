@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Data.Common;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -44,6 +45,7 @@ public class Player : KinematicBody2D
 	[Export] public string ingredientInHand;
 	[Export] public Vector2 ScreenSize = new Vector2(320,180);
 	[Export] public Vector2 SpriteOffset = new Vector2(8f,8f);
+	//private bool _cauldronGoodPlace = true;
 	public int Speed = 100;
 	private Vector2 _velocity = new Vector2();
 

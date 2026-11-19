@@ -10,6 +10,7 @@ public class EntityRoot : Node2D
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
+	private bool _cauldronGoodRecipeComplete = false;
 	private ItemList _recipeList;
 	private readonly NodePath _recipeListPath = "../../HudLayer/HudRoot/RecipeControl/RecipeList";
 	private Cauldron _cauldron;
@@ -45,7 +46,7 @@ public class EntityRoot : Node2D
 		//for the random recipe generation 
 		_cauldron = GetNode<Cauldron>(_cauldronPath);
 		_recipeList = GetNode<ItemList>(_recipeListPath);
-		 
+		_cauldron.Connect(nameof(Cauldron.GoodRecipeComplete), this, nameof(CauldronGoodRecipeComplete));
 		 //for the random recipe
 		/* generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
 		generatedRecipe.Add(animalProduct[_rng.RandiRange(0, animalProduct.Count-1)]);
@@ -85,5 +86,20 @@ public class EntityRoot : Node2D
 //      
 
 //  }
-	
+	private void CauldronGoodRecipeComplete(){
+		_cauldronGoodRecipeComplete = true;
+	}
+	private void _on_GameTimer_timeout()
+	{
+		if(_cauldronGoodRecipeComplete){
+			GetTree().ChangeScene("res://src/core/end_screens/Success.tscn");
+		}else{
+			GetTree().ChangeScene("res://src/core/end_screens/Failure.tscn");
+		}
+		
+		
+	}
 }
+
+
+
