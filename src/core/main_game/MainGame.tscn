@@ -37,6 +37,7 @@ pause_mode = 1
 script = ExtResource( 17 )
 
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
+position = Vector2( 112, 87 )
 
 [node name="Cauldron" parent="World/EntityRoot" instance=ExtResource( 4 )]
 position = Vector2( 151, 60 )

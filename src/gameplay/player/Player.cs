@@ -91,14 +91,16 @@ public class Player : KinematicBody2D
 		clampedPosition.x = Mathf.Clamp(clampedPosition.x, SpriteOffset.x, ScreenSize.x - SpriteOffset.x);
 		clampedPosition.y = Mathf.Clamp(clampedPosition.y, SpriteOffset.y, ScreenSize.y - SpriteOffset.y);
 		Position = clampedPosition;
-		
+		//2 versions of the collision if
 		if(collision!= null){
 			//GD.Print(collision);
 			Node collider = (Node)collision.Collider;
 			
+			//1 where the player must place the item in the cauldron after pickup
 			if(!holding){
 				if(collider.IsInGroup("ingredient")){
 					GD.Print(collider.Name);
+					IngredientsFalse();
 					Set_Ingredient(collider.Name);
 					ingredientInHand = collider.Name;
 					holding = true;
@@ -112,6 +114,22 @@ public class Player : KinematicBody2D
 					holding = false;
 				}
 			}
+			//2 where the player can switch between ingredients without having to place in the cauldron
+			/*if(collider.IsInGroup("ingredient")){
+				GD.Print(collider.Name);
+				IngredientsFalse();
+				Set_Ingredient(collider.Name);
+				ingredientInHand = collider.Name;
+				holding = true;
+			}else{
+				if(collider.Name == "Cauldron"){
+					//_alkahest.Visible = false;
+					//_aquaFortis.Visible = false;
+					EmitSignal(nameof(PlacedIngredient),ingredientInHand);
+					IngredientsFalse();
+					holding = false;
+				}
+			}*/
 			
 		}
 		//_alkahest.Position = new Vector2(this.Position.x, this.Position.y - 8);
