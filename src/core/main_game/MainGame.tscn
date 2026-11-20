@@ -85,6 +85,7 @@ visible = false
 position = Vector2( 304, 142 )
 
 [node name="BorderRoot" type="Node2D" parent="World"]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="World/BorderRoot"]
 

@@ -43,36 +43,20 @@ public class EntityRoot : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		//needed to ensure it's actually random between runs
+		_rng.Randomize();
 		//for the random recipe generation 
 		_cauldron = GetNode<Cauldron>(_cauldronPath);
 		_recipeList = GetNode<ItemList>(_recipeListPath);
 		_cauldron.Connect(nameof(Cauldron.GoodRecipeComplete), this, nameof(CauldronGoodRecipeComplete));
 		 //for the random recipe
-		/* generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
-		generatedRecipe.Add(animalProduct[_rng.RandiRange(0, animalProduct.Count-1)]);
-		generatedRecipe.Add(plant[_rng.RandiRange(0, plant.Count-1)]);
-		originalRecipe = new List<string>(generatedRecipe);
-		GD.Print(string.Join(", ", generatedRecipe));
-		GD.Print(string.Join(", ", originalRecipe));
-		Random rng = new Random();
-		int n = generatedRecipe.Count;
-		while (n > 1)
-		{
-			n--;
-			int k = rng.Next(n + 1);
-			string value = generatedRecipe[k];
-			generatedRecipe[k] = generatedRecipe[n];
-			generatedRecipe[n] = value;
-		}
-		GD.Print(string.Join(", ", generatedRecipe));
-		GD.Print(string.Join(", ", originalRecipe));
-		_cauldron.generatedRecipe = originalRecipe; */
+		Initialize();
 
 		//recipe for testing
-		generatedRecipe.Add("Alkahest");
+		/* generatedRecipe.Add("Alkahest");
 		generatedRecipe.Add("AquaFortis");
 		generatedRecipe.Add("BearFat");
-		_cauldron.generatedRecipe = generatedRecipe;
+		_cauldron.generatedRecipe = generatedRecipe; */
 
 		foreach(string element in generatedRecipe){
 			_recipeList.AddItem(element);
@@ -98,6 +82,39 @@ public class EntityRoot : Node2D
 		}
 		
 		
+	}
+	//added to ensure new recipe between scene reloads
+	private void Initialize(){
+		generatedRecipe = new List<string>();
+		//int temp = _rng.RandiRange(0, chemicals.Count-1);
+		//generatedRecipe.Add(chemicals[temp]);
+		generatedRecipe.Add(chemicals[_rng.RandiRange(0, chemicals.Count-1)]);
+		//GD.Print(string.Join(", ", generatedRecipe));
+		//int temp = _rng.RandiRange(0, chemicals.Count-1);
+		//GD.Print("chemical rng" + temp + " " +chemicals[temp]);
+		//GD.Print("chemical rng" + _rng.RandiRange(0, chemicals.Count-1));
+		generatedRecipe.Add(animalProduct[_rng.RandiRange(0, animalProduct.Count-1)]);
+		//GD.Print("animal rnd " + _rng.RandiRange(0, animalProduct.Count-1));
+		//GD.Print("animal rnd " + _rng.RandiRange(0, animalProduct.Count-1));
+		generatedRecipe.Add(plant[_rng.RandiRange(0, plant.Count-1)]);
+		//GD.Print("plant rng " + _rng.RandiRange(0, plant.Count-1));
+		//GD.Print("plant rng " + _rng.RandiRange(0, plant.Count-1));
+		originalRecipe = new List<string>(generatedRecipe);
+		GD.Print(string.Join(", ", generatedRecipe));
+		GD.Print(string.Join(", ", originalRecipe));
+		Random rng = new Random();
+		int n = generatedRecipe.Count;
+		while (n > 1)
+		{
+			n--;
+			int k = rng.Next(n + 1);
+			string value = generatedRecipe[k];
+			generatedRecipe[k] = generatedRecipe[n];
+			generatedRecipe[n] = value;
+		}
+		GD.Print(string.Join(", ", generatedRecipe));
+		GD.Print(string.Join(", ", originalRecipe));
+		_cauldron.generatedRecipe = originalRecipe; 
 	}
 }
 

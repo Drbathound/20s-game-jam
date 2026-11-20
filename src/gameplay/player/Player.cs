@@ -99,7 +99,7 @@ public class Player : KinematicBody2D
 			//1 where the player must place the item in the cauldron after pickup
 			if(!holding){
 				if(collider.IsInGroup("ingredient")){
-					GD.Print(collider.Name);
+					//GD.Print(collider.Name);
 					IngredientsFalse();
 					Set_Ingredient(collider.Name);
 					ingredientInHand = collider.Name;
