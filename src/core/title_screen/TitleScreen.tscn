@@ -93,7 +93,7 @@ margin_top = 22.0
 margin_right = -2.0
 margin_bottom = -70.0
 custom_fonts/font = SubResource( 3 )
-items = [ "Programming: Hank and Alger", null, false, "Art: Rune, Hank, and Drabbi", null, false ]
+items = [ "Programming: DrBathound and Alger", null, false, "Art: RuneWave, DrBathound, and Drabbi", null, false ]
 
 [node name="CloseCreditsButton" type="Button" parent="."]
 margin_left = 8.0
