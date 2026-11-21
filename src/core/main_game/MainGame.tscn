@@ -123,7 +123,7 @@ position = Vector2( 122, 168 )
 position = Vector2( 184, 168 )
 
 [node name="WyrmTongue" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 14 )]
-position = Vector2( 225, 142 )
+position = Vector2( 98, 69 )
 
 [node name="BorderRoot" type="Node2D" parent="World"]
 visible = false
@@ -173,7 +173,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -85.0
-margin_top = -16.0
+margin_top = -98.0
 toggle_mode = true
 
 [node name="TimerDisplayControl" type="Control" parent="HudLayer/HudRoot"]

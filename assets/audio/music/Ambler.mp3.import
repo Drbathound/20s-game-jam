@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ambler.mp3-53b44d9139d1a5cba332cab5faa14132.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Ambler.mp3"
+dest_files=[ "res://.import/Ambler.mp3-53b44d9139d1a5cba332cab5faa14132.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

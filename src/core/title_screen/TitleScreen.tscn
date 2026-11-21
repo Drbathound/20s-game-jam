@@ -108,7 +108,7 @@ margin_left = -320.0
 margin_right = -2.0
 margin_bottom = -2.0
 custom_fonts/font = SubResource( 3 )
-items = [ "Programming: DrBathound and Alger", null, false, "Art: RuneWave, Drabbi, and DrBathound", null, false, "Music:", null, false, "", null, false, "MellowTron Kevin MacLeod (incompetech.com)", null, false, "Licensed under Creative Commons: ", null, false, "By Attribution 4.0", null, false, "https://creativecommons.org/licenses/by/4.0/", null, false, "cauldron sfx: lamoot under cc-by 3.0", null, false, "fire sfx: pagdev under cc 0", null, false ]
+items = [ "Programming: DrBathound and Alger", null, false, "Art: RuneWave, Drabbi, and DrBathound", null, false, "Music:", null, false, "", null, false, "MellowTron and Amber Kevin MacLeod (incompetech.com) ", null, false, "Licensed under Creative Commons: ", null, false, "By Attribution 4.0", null, false, "https://creativecommons.org/licenses/by/4.0/", null, false, "cauldron sfx: lamoot under cc-by 3.0", null, false, "fire sfx: pagdev under cc 0", null, false ]
 
 [node name="CloseCreditsButton" type="Button" parent="."]
 margin_left = 215.0

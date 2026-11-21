@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/art/world/Speech_Bubble-updated-1.png" type="Texture" id=1]
 [ext_resource path="res://fonts/poco/Poco.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/core/end_screens/Success.cs" type="Script" id=4]
 [ext_resource path="res://assets/art/world/Alchemy_Lab.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/characters/Homonculus_Player.png" type="Texture" id=6]
+[ext_resource path="res://assets/audio/music/Ambler.mp3" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -67,6 +68,11 @@ text = "Congratulations!
 You passed the alchemy exam!
 You have been promoted to recipe homunculus!"
 align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
