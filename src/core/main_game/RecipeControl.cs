@@ -11,12 +11,16 @@ public class RecipeControl : Control
 	// private string b = "text";
 	private ItemList _recipeList;
 	private NodePath _recipeListPath = "RecipeList";
+	private Sprite _recipeClosedSprite;
+	private NodePath _recipeClosedSpritePath = "RecipeClosedSprite";
 	//private DynamicFont _font;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_recipeList = GetNode<ItemList>(_recipeListPath);
 		_recipeList.Visible = false;
+		_recipeClosedSprite = GetNode<Sprite>(_recipeClosedSpritePath);
+		_recipeClosedSprite.Visible = true;
 		//_font = _recipeList.GetFont("font") as DynamicFont;
 		//GD.Print("itemlist font is size " + _font.Size);
 	}
@@ -32,8 +36,10 @@ public class RecipeControl : Control
 		if(button_pressed){
 			GD.Print("recipe should be visible");
 			_recipeList.Visible = true;
+			_recipeClosedSprite.Visible = false;
 		}else{
 			_recipeList.Visible = false;
+			_recipeClosedSprite.Visible = true;
 		}
 		
 	}
