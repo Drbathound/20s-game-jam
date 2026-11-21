@@ -60,7 +60,7 @@ position = Vector2( 160, 30 )
 scale = Vector2( 16, 3 )
 
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
-position = Vector2( 112, 87 )
+position = Vector2( 71, 138 )
 
 [node name="Cauldron" parent="World/EntityRoot" instance=ExtResource( 4 )]
 position = Vector2( 156, 115 )
@@ -102,7 +102,7 @@ position = Vector2( 154, 71 )
 position = Vector2( 151, 168 )
 
 [node name="Mandrake" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 15 )]
-position = Vector2( 93, 168 )
+position = Vector2( 61, 168 )
 
 [node name="MilkThistle" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 16 )]
 position = Vector2( 10, 125 )
@@ -114,7 +114,7 @@ position = Vector2( 122, 168 )
 position = Vector2( 184, 168 )
 
 [node name="WyrmTongue" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 14 )]
-position = Vector2( 304, 142 )
+position = Vector2( 225, 142 )
 
 [node name="BorderRoot" type="Node2D" parent="World"]
 visible = false

@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/poco/Poco.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/poco/Poco.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/art/characters/Green_Wizard.png" type="Texture" id=3]
-[ext_resource path="res://assets/art/world/Speech_Bubble.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/world/Speech_Bubble-updated-1.png" type="Texture" id=4]
 [ext_resource path="res://src/core/title_screen/TitleScreen.cs" type="Script" id=5]
 [ext_resource path="res://assets/audio/music/Mellowtron.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/art/world/Alchemy_Lab.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/characters/Blue_Wizard.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -21,6 +23,11 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
@@ -48,6 +55,11 @@ texture = ExtResource( 3 )
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 199, 84 )
 texture = ExtResource( 4 )
+
+[node name="Player-Sprite" type="Sprite" parent="."]
+position = Vector2( 71, 138 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 115.0
@@ -88,6 +100,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 
 [node name="CreditsList" type="ItemList" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
