@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/art/characters/Blue_Wizard.png" type="Texture" id=1]
 [ext_resource path="res://src/gameplay/player/Player.cs" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/art/world/ingredients/Eye_of_Newt.png" type="Texture" id=12]
 [ext_resource path="res://assets/art/world/ingredients/Wyrm_Tounge1.png" type="Texture" id=13]
 [ext_resource path="res://assets/art/world/ingredients/Mandrake.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/world/ingredients/fig_leaf.png" type="Texture" id=15]
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 4 )
@@ -192,6 +193,8 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 10 )
 
 [node name="figLeaves" type="Sprite" parent="."]
+position = Vector2( 0, -13 )
+texture = ExtResource( 15 )
 
 [node name="mandrake" type="Sprite" parent="."]
 position = Vector2( 0, -14 )

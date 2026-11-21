@@ -97,7 +97,7 @@ public class Player : KinematicBody2D
 			Node collider = (Node)collision.Collider;
 			
 			//1 where the player must place the item in the cauldron after pickup
-			if(!holding){
+			/*if(!holding){
 				if(collider.IsInGroup("ingredient")){
 					//GD.Print(collider.Name);
 					IngredientsFalse();
@@ -113,14 +113,16 @@ public class Player : KinematicBody2D
 					IngredientsFalse();
 					holding = false;
 				}
-			}
+			}*/
 			//2 where the player can switch between ingredients without having to place in the cauldron
-			/*if(collider.IsInGroup("ingredient")){
-				GD.Print(collider.Name);
-				IngredientsFalse();
-				Set_Ingredient(collider.Name);
-				ingredientInHand = collider.Name;
-				holding = true;
+			if(!holding){
+				if(collider.IsInGroup("ingredient")){
+					GD.Print(collider.Name);
+					IngredientsFalse();
+					Set_Ingredient(collider.Name);
+					ingredientInHand = collider.Name;
+					holding = true;
+				}
 			}else{
 				if(collider.Name == "Cauldron"){
 					//_alkahest.Visible = false;
@@ -128,8 +130,15 @@ public class Player : KinematicBody2D
 					EmitSignal(nameof(PlacedIngredient),ingredientInHand);
 					IngredientsFalse();
 					holding = false;
+				}else if(collider.IsInGroup("ingredient")){
+					GD.Print(collider.Name);
+					IngredientsFalse();
+					Set_Ingredient(collider.Name);
+					ingredientInHand = collider.Name;
+					//holding = true;
 				}
-			}*/
+			}
+				
 			
 		}
 		//_alkahest.Position = new Vector2(this.Position.x, this.Position.y - 8);

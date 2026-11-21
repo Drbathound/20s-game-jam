@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/poco/Poco.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/poco/Poco.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/art/characters/Green_Wizard.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/world/Speech_Bubble.png" type="Texture" id=4]
 [ext_resource path="res://src/core/title_screen/TitleScreen.cs" type="Script" id=5]
+[ext_resource path="res://assets/audio/music/Mellowtron.mp3" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -49,15 +50,17 @@ position = Vector2( 199, 84 )
 texture = ExtResource( 4 )
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 113.0
-margin_top = 52.0
-margin_right = 284.0
-margin_bottom = 106.0
+margin_left = 115.0
+margin_top = 43.0
+margin_right = 286.0
+margin_bottom = 118.0
 custom_fonts/font = SubResource( 2 )
 text = "The automatic potion brewer
 is broken, and the recipe homunculus 
 jumped out the window. The order is 
-always chemical, animal product, and plant."
+always chemical, animal product, and plant.
+You have 20 seconds to stabilize the
+cauldron or we all go boom."
 align = 1
 
 [node name="StartButton" type="Button" parent="."]
@@ -89,19 +92,23 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -320.0
-margin_top = 22.0
 margin_right = -2.0
-margin_bottom = -70.0
+margin_bottom = -2.0
 custom_fonts/font = SubResource( 3 )
-items = [ "Programming: DrBathound and Alger", null, false, "Art: RuneWave, DrBathound, and Drabbi", null, false ]
+items = [ "Programming: DrBathound and Alger", null, false, "Art: RuneWave, Drabbi, and DrBathound", null, false, "Music:", null, false, "", null, false, "MellowTron Kevin MacLeod (incompetech.com)", null, false, "Licensed under Creative Commons: ", null, false, "By Attribution 4.0", null, false, "https://creativecommons.org/licenses/by/4.0/", null, false ]
 
 [node name="CloseCreditsButton" type="Button" parent="."]
-margin_left = 8.0
-margin_top = 117.0
-margin_right = 98.0
-margin_bottom = 131.0
+margin_left = 215.0
+margin_top = 138.0
+margin_right = 305.0
+margin_bottom = 152.0
 custom_fonts/font = ExtResource( 2 )
 text = "Close Credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_CreditButton_pressed"]

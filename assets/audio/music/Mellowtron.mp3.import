@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mellowtron.mp3-442e16cbb345e6994998c6012501754e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Mellowtron.mp3"
+dest_files=[ "res://.import/Mellowtron.mp3-442e16cbb345e6994998c6012501754e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
