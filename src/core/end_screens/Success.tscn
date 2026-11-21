@@ -22,9 +22,9 @@ margin_bottom = 85.0
 text = "restart"
 
 [node name="QuitButton" type="Button" parent="."]
-margin_left = 33.0
+margin_left = 22.0
 margin_top = 104.0
-margin_right = 70.0
+margin_right = 76.0
 margin_bottom = 124.0
 text = "quit"
 
