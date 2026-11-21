@@ -3,6 +3,7 @@
 [ext_resource path="res://assets/art/world/ingredients/Dandelion_Basket.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
 
 [node name="Dandelion" type="KinematicBody2D"]
 

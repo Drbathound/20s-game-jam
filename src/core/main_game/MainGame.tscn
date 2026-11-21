@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/gameplay/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/gameplay/ingredients/Alkahest.tscn" type="PackedScene" id=2]
@@ -27,6 +27,9 @@
 [ext_resource path="res://assets/audio/music/Mellowtron.mp3" type="AudioStream" id=25]
 [ext_resource path="res://assets/audio/sfx/fire.wav" type="AudioStream" id=26]
 [ext_resource path="res://assets/audio/sfx/LavaLoop.wav" type="AudioStream" id=27]
+[ext_resource path="res://assets/art/world/Alchemy_Lab.png" type="Texture" id=28]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="MainGame" type="Node"]
 pause_mode = 2
@@ -36,14 +39,31 @@ pause_mode = 2
 [node name="World" type="Node2D" parent="."]
 pause_mode = 1
 
+[node name="TextureRect" type="TextureRect" parent="World"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+
 [node name="EntityRoot" type="Node2D" parent="World"]
 script = ExtResource( 17 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="World/EntityRoot"]
+position = Vector2( 160, 30 )
+scale = Vector2( 16, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/EntityRoot/KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="World/EntityRoot"]
+visible = false
+position = Vector2( 160, 30 )
+scale = Vector2( 16, 3 )
 
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
 position = Vector2( 112, 87 )
 
 [node name="Cauldron" parent="World/EntityRoot" instance=ExtResource( 4 )]
-position = Vector2( 151, 60 )
+position = Vector2( 156, 115 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="World/EntityRoot/Cauldron"]
 stream = ExtResource( 26 )
@@ -55,28 +75,28 @@ volume_db = -25.0
 autoplay = true
 
 [node name="Acorn" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 5 )]
-position = Vector2( 300, 80 )
+position = Vector2( 219, 71 )
 
 [node name="Alkahest" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 2 )]
-position = Vector2( 21, 37 )
+position = Vector2( 21, 67 )
 
 [node name="AquaFortis" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 3 )]
-position = Vector2( 300, 50 )
+position = Vector2( 199, 68 )
 
 [node name="BearFat" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 6 )]
-position = Vector2( 20, 63 )
+position = Vector2( 10, 85 )
 
 [node name="Dandelion" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 7 )]
-position = Vector2( 21, 91 )
+position = Vector2( 9, 105 )
 
 [node name="DragonScale" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 8 )]
-position = Vector2( 21, 141 )
+position = Vector2( 8, 146 )
 
 [node name="EyeofNewt" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 9 )]
-position = Vector2( 22, 168 )
+position = Vector2( 9, 168 )
 
 [node name="Fig" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 10 )]
-position = Vector2( 154, 10 )
+position = Vector2( 154, 71 )
 
 [node name="FigLeaves" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 11 )]
 position = Vector2( 151, 168 )
@@ -85,7 +105,7 @@ position = Vector2( 151, 168 )
 position = Vector2( 93, 168 )
 
 [node name="MilkThistle" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 16 )]
-position = Vector2( 21, 115 )
+position = Vector2( 10, 125 )
 
 [node name="PowderofAlgaroth" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 12 )]
 position = Vector2( 122, 168 )
