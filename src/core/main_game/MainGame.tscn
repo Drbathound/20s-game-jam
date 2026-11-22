@@ -63,11 +63,6 @@ scale = Vector2( 16, 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/EntityRoot/KinematicBody2D"]
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="World/EntityRoot"]
-visible = false
-position = Vector2( 160, 30 )
-scale = Vector2( 16, 3 )
-
 [node name="Player" parent="World/EntityRoot" instance=ExtResource( 1 )]
 position = Vector2( 71, 138 )
 
@@ -124,11 +119,6 @@ position = Vector2( 184, 168 )
 
 [node name="WyrmTongue" parent="World/EntityRoot" groups=["ingredient"] instance=ExtResource( 14 )]
 position = Vector2( 98, 69 )
-
-[node name="BorderRoot" type="Node2D" parent="World"]
-visible = false
-
-[node name="StaticBody2D" type="StaticBody2D" parent="World/BorderRoot"]
 
 [node name="GameTimer" type="Timer" parent="World"]
 wait_time = 20.0
